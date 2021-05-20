@@ -20,5 +20,19 @@
       "error",
       "always"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.test.ts",
+        "*.spec.ts"
+      ],
+      "rules": {
+        "semi": [
+          "error",
+          "never"
+        ]
+      }
+    }
+  ]
 }

@@ -21,23 +21,15 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": [
-        "./src/controllers/*"
-      ],
-      "@models/*": [
-        "./src/models/*"
-      ],
-      "@views/*": [
-        "./src/views/*"
-      ],
-      "@config/*": [
-        "./src/config/*"
+      "@/*": [
+        "./src/*"
       ]
     }
   },
   "include": [
     "src/**/*",
     "src/tests/*",
-    "src/tests"
+    "src/test/*",
+    "__test__/*"
   ]
 }

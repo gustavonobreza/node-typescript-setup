@@ -1,5 +1,6 @@
-import { app } from './app'
-import http from 'http'
+import { app } from './app';
+import { createServer } from 'http';
 
-http.createServer(app).listen(3400)
-console.log('Server running in: http://localhost:3400')
+createServer(app).listen(3000).on('error', (err) => {
+  console.error(err);
+});

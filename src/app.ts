@@ -1,9 +1,13 @@
-import express from 'express'
+import express from 'express';
+import { json } from 'body-parser';
+import cors from 'cors';
+import route from './routes/route';
 
-const app = express()
+const app = express();
 
-app.get('/', (req, res) => {
-  res.json({ msg: 'Hello World!' })
-})
+app.use(cors());
+app.use(json());
 
-export { app }
+app.use(route);
+
+export { app };
