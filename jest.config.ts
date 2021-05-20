@@ -1,5 +1,5 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils'
-import { compilerOptions } from './tsconfig.json'
+import { pathsToModuleNameMapper } from 'ts-jest/utils';
+import { compilerOptions } from './tsconfig.json';
 // https://jestjs.io/docs/en/configuration.html
 
 export default {
@@ -191,4 +191,4 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-}
+};
