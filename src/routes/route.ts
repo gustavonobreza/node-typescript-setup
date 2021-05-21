@@ -10,20 +10,27 @@ route
     res.status(200).json({
       message: 'Hello World!'
     });
-    finishConnection(res);
+    finishConnection(res).ok();
   })
   .get('/users', (req, res, next) => {
     res.status(200).json({ data: userData });
-    finishConnection(res);
+    finishConnection(res).ok();
   })
   .get('/error', (req, res, next) => {
     const err = new HttpErrors({ name: 'Error', message: 'Just throw an error', statusCode: 500 });
-    finishConnection(res, err);
+    finishConnection(res).error(err);
   });
 
-const finishConnection = (res: Response, err ?: HttpErrors) => {
-  if (err) res.status(err.statusCode).json({ statusCode: err.statusCode, error: err.name, message: err.message });
-  res.end();
+const finishConnection = (res: Response) => {
+  return {
+    error (err: HttpErrors) {
+      if (err) res.status(err.statusCode).json({ statusCode: err.statusCode, error: err.name, message: err.message });
+      res.end();
+    },
+    ok () {
+      res.end();
+    }
+  };
 };
 
 export default route;
