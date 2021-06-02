@@ -1,6 +1,3 @@
-import { app } from './app';
-import { createServer } from 'http';
-
-createServer(app).listen(3000).on('error', (err) => {
-  console.error(err);
-});
+export function addAll (nums: Array<number>): number {
+  return nums.reduce((prev, curr) => prev + curr, 0);
+}

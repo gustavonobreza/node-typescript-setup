@@ -28,8 +28,12 @@
   },
   "include": [
     "src/**/*",
-    "src/tests/*",
-    "src/test/*",
-    "__test__/*"
+    "__tests__",
+    "__test__",
+    "tests",
+    "test"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

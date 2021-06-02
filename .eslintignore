@@ -2,3 +2,6 @@
 # /*.ts
 /dist/
 /node_modules/
+
+/**/**.json
+*.json
