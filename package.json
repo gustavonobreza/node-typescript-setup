@@ -1,8 +1,11 @@
 {
-  "name": "node-typescript-setup",
+  "name": "@gunobreza/typescript-setup",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/Gustavonobreza/node-typescript-setup.git",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gustavonobreza/node-typescript-setup.git"
+  },
   "author": "Gustavo Alexandre Nobre Mesquita <gnobremesquita@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -10,7 +13,7 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node dist/index.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
-    "lint": "./node_modules/.bin/eslint . --ext .ts --ext .js --fix"
+    "lint": "eslint . --ext .ts --ext .js --fix"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
@@ -35,5 +38,9 @@
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.4"
   },
-  "dependencies": {}
+  "description": "To start the project run ``yarn`` or ``npm install``",
+  "bugs": {
+    "url": "https://github.com/Gustavonobreza/node-typescript-setup/issues"
+  },
+  "homepage": "https://github.com/Gustavonobreza/node-typescript-setup#readme"
 }
