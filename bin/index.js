@@ -2,7 +2,7 @@
 const util = require('util');
 const path = require('path');
 const fs = require('fs');
-const { execSync } = require('child_process');
+// const { execSync } = require('child_process');
 
 // Utility functions
 const exec = util.promisify(require('child_process').exec);
@@ -11,10 +11,8 @@ async function runCmd(command) {
     const { stdout, stderr } = await exec(command);
     console.log(stdout);
     console.log(stderr);
-  } catch {
-    (error) => {
+  } catch (error) {
       console.log(error);
-    };
   }
 }
 
@@ -72,7 +70,7 @@ async function setup() {
     // if (useYarn) {
     //   await runCmd('yarn install');
     // } else {
-      await runCmd('npm install');
+    await runCmd('npm install');
     // }
     console.log('Dependencies installed successfully.');
     console.log();
@@ -85,11 +83,21 @@ async function setup() {
     await runCmd('npx rimraf ./.git');
 
     // Remove extra files
-    fs.unlinkSync(path.join(appPath, 'CHANGELOG.md'));
-    fs.unlinkSync(path.join(appPath, 'CODE_OF_CONDUCT.md'));
-    fs.unlinkSync(path.join(appPath, 'CONTRIBUTING.md'));
+    // fs.unlinkSync(path.join(appPath, 'CHANGELOG.md'));
+    // fs.unlinkSync(path.join(appPath, 'CODE_OF_CONDUCT.md'));
+    fs.unlinkSync(path.join(appPath, 'yarn.lock'));
     fs.unlinkSync(path.join(appPath, 'bin', 'index.js'));
     fs.rmdirSync(path.join(appPath, 'bin'));
+    
+    fs.unlinkSync(path.join(appPath, 'package.json'));
+
+    fs.renameSync(path.join(appPath, 'client.package.json'), path.join(appPath, 'package.json'))
+
+    let clientPack = JSON.parse(fs.readFileSync(path.join(appPath, 'package.json'), 'utf8'));
+    
+    clientPack.name = folderName
+    
+    fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(clientPack, null, 2));
     // if (!useYarn) {
     //   fs.unlinkSync(path.join(appPath, 'yarn.lock'));
     // }
