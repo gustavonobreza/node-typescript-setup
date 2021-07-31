@@ -1,6 +1,6 @@
  # Template to your Typescript Node project
 
-To start the project run
+To start the project run:
  ```bash
  $ yarn
 
